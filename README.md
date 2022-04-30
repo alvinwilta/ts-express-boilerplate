@@ -8,6 +8,16 @@ start server with `npm start`
 
 start test with `npm run test`
 
+# Features
+
+- Basic authentication with **jwt** and **bcrypt** (login, register)
+- Basic document creation using MongoDB as database with **mongoose**
+- Basic file handling with **multer**
+- Basic pdf filler with **pdf-lib**
+- Unit testing with **mocha** and **chai**
+- Separate configuration for development, testing, and staging environment
+- Logging formatter with **pino**
+
 # Notes:
 
 ## Mongoose Middleware vs Express Middleware
