@@ -12,6 +12,7 @@ start test with `npm run test`
 
 - Basic authentication with **jwt** and **bcrypt** (login, register)
 - Basic document creation using MongoDB as database with **mongoose**
+  > **_IMPORTANT_!** configure .env from .env.example to connect with your mongoose database
 - Basic file handling with **multer**
 - Basic pdf filler with **pdf-lib**
 - Unit testing with **mocha** and **chai**
@@ -55,19 +56,19 @@ models | field attribute of database schema | All hooks and schema structure wil
 ## Tips to create an endpoint
 
 1. Create interface
-   > It is recommended to match interface with database attributes to provide consistency of data type, add more interface to improve consistency between data types 
+   > It is recommended to match interface with database attributes to provide consistency of data type, add more interface to improve consistency between data types
 1. Create services
    > a. Create services according to what the worker will do, it is recommended to create workers with single responsibility and reuse them later on
    > b. Handle missing parameter and parameter types, you can use interface to simplify this process
-2. Create models
+1. Create models
    > Create schema model accordingly, use Object id if it needs some kind of "relationship" between collection
-3. Create controller
-   > a. Handle request parameters and error handling (req/res) 
+1. Create controller
+   > a. Handle request parameters and error handling (req/res)
    > b. If possible, do not pass whole request body to services, it is better to validate each of the request and pass them to services accordingly
-4. Create route
+1. Create route
    > Define "parent" route on index.ts and define its subroute on another file
-5. (opsional) Create middleware
+1. (opsional) Create middleware
    > Call middlewares before controller (in routes)
-6. Test API
+1. Test API
 
 - Don't forget to use logging and import logging from utils. If necessary, you can rename the logger to something else to avoid conflict with autocomplete (there are other "Logger")
