@@ -38,7 +38,7 @@ const MONGO = {
 //* SERVER
 //* Configuration for the main server
 const getServerHostname = () => {
-  return process.env.VERCEL_URL || process.env.SERVER_HOSTNAME;
+  return process.env.CYCLIC_URL || process.env.SERVER_HOSTNAME;
 };
 const SERVER_PORT = process.env.PORT || process.env.SERVER_PORT;
 
