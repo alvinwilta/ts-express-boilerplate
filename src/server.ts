@@ -21,11 +21,12 @@ app.get("/", (req, res) => {
 // Setup routes
 setupRoute(app);
 
-app.listen(config.server.port, async () => {
-  logger.info(
-    `Server started at http://${config.server.hostname}:${config.server.port}`
-  );
-  await connectDB();
-});
+connectDB().then(() =>
+  app.listen(config.server.port, async () => {
+    logger.info(
+      `Server started at http://${config.server.hostname}:${config.server.port}`
+    );
+  })
+);
 
 export default app;
