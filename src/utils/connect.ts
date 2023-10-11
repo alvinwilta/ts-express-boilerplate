@@ -14,6 +14,7 @@ async function connectDB() {
     } else if (process.env.ENV === "TEST") {
       url = config.mongo.url_test;
     }
+    mongoose.set("strictQuery", false);
     await mongoose.connect(url, options);
     logger.info({ msg: "Connected to mongodb" });
   } catch (err) {

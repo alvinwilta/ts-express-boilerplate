@@ -10,6 +10,7 @@ const authConfig = {
   salt: 10,
   accessTokenTtl: 15 * 60 * 1000,
   refreshTokenTtl: 365 * 24 * 60 * 1000,
+  cookieMaxAge: 15 * 60 * 1000,
 };
 
 export default authConfig;

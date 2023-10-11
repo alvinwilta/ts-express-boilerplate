@@ -1,12 +1,8 @@
 import logger from "pino";
-import dayjs from "dayjs";
+import PinoPretty from "pino-pretty";
 
-const log = logger({
-  prettyPrint: true,
-  base: {
-    pid: false,
-  },
-  timestamp: () => `,"time":${dayjs().format()}`,
-});
+const log = logger(
+  PinoPretty({ colorize: true, translateTime: true, ignore: "pid,hostname" })
+);
 
 export default log;

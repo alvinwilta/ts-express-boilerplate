@@ -33,6 +33,28 @@ export async function findOneTicketService(query: any) {
   }
 }
 
+export async function deleteOneTicketService(query: any) {
+  try {
+    const res = await TicketModel.deleteOne(query);
+    return {
+      acknowledged: res.acknowledged,
+      deletedCount: res.deletedCount || 0,
+    };
+  } catch (err: any) {
+    logger.error(err);
+    throw err;
+  }
+}
+
+export async function findAllTicketService() {
+  try {
+    return await TicketModel.find();
+  } catch (err: any) {
+    logger.error(err);
+    throw err;
+  }
+}
+
 //* Send email
 export async function sendEmailService(email: string, token: string) {
   // create reusable transporter object using the default SMTP transport

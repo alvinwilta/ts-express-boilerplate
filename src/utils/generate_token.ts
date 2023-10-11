@@ -1,7 +1,7 @@
 //* Generate pseudorandom token
 // TODO: Need ehancement to avoid duplicates
 
-function generateToken(length: Number) {
+function generateToken(length: number) {
   if (length < 4) {
     throw Error("Length too short!");
   }

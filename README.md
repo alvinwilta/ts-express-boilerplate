@@ -1,6 +1,6 @@
 # Typescript Boilerplate with MongoDB
 
-to run server with dev settings use `npm run start:dev`
+to run server with dev settings use `npm run dev`
 
 build server with `npm run build`
 
@@ -18,6 +18,16 @@ start test with `npm run test`
 - Unit testing with **mocha** and **chai**
 - Separate configuration for development, testing, and staging environment
 - Logging formatter with **pino**
+
+# API Endpoints
+
+GET /ticket/check
+GET /ticket
+POST /ticket/create
+DELETE /ticket/
+
+POST /auth/register
+POST /auth/login
 
 # Notes:
 
@@ -45,7 +55,7 @@ Folder Name | Description | Functionalities
 ------------|-------------|----------------
 config | Constants for server configuration | declaring database url, environment, etc
 constants | Reusable constants | Declaring constants that'll be used repeatedly
-middlewares | Express middlewares | req/res preprocessing(?), e.g. jwt/cookie authentication, session validation, etc
+middlewares | Express middlewares | for repeated functions on multiple APIs, e.g. jwt/cookie authentication, session validation, etc
 routes | All API routes | All routes and their respective middleware and callbacks
 controller | Layer between _HTTP Request_ (or _middleware_) and services | Interface for handling req/res before sending it to worker (services)
 services | API worker | All necessary operations before/after querying to database, make sure to THROW any errors, logging are optional whether you want to log it on controller or service for better debugging

@@ -1,4 +1,4 @@
-import { RequestHandler } from "express";
+import { CookieOptions, RequestHandler } from "express";
 import { StatusCodes } from "http-status-codes";
 import {
   createAccessToken,
@@ -8,6 +8,7 @@ import {
 } from "../services/account.service";
 import { omit } from "lodash";
 import logger from "../utils/logger";
+import authConfig from "../config/auth.config";
 
 //* Basic Authentication with JWT
 
@@ -28,7 +29,15 @@ const login: RequestHandler = async (req, res) => {
         .json({ msg: "Password invalid!" });
     }
     const token = await createAccessToken(req.body.username);
+    const cookieConfig: CookieOptions = {
+      maxAge: authConfig.cookieMaxAge,
+    };
+    if (process.env.ENV == "PROD") {
+      cookieConfig.secure = true;
+    }
+
     return res
+      .cookie("jwt", token, cookieConfig)
       .status(StatusCodes.OK)
       .send({ ...omit(akun, "password"), token: token });
   } catch (err: any) {
