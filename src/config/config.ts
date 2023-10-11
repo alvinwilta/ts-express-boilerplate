@@ -30,7 +30,7 @@ const MONGO_TEST_DB = process.env.MONGO_TEST_DB;
 const MONGO = {
   username: MONGO_USERNAME,
   options: MONGO_OPTIONS,
-  url_server: `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_CLUSTER}/${MONGO_DB}?retryWrites=true&w=majority`,
+  url_server: `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority`,
   url_local: `mongodb://${MONGO_LOCAL_HOSTNAME}:${MONGO_LOCAL_PORT}/${MONGO_LOCAL_DB}`,
   url_test: `mongodb://${MONGO_TEST_HOSTNAME}:${MONGO_TEST_PORT}/${MONGO_TEST_DB}`,
 };

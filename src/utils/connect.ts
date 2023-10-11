@@ -15,6 +15,7 @@ async function connectDB() {
       url = config.mongo.url_test;
     }
     mongoose.set("strictQuery", false);
+    logger.info(url);
     await mongoose.connect(url, options);
     logger.info({ msg: "Connected to mongodb" });
   } catch (err) {
